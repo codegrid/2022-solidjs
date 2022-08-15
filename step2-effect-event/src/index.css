@@ -1,0 +1,96 @@
+html {
+  font-family: sans-serif;
+  font-size: 20px;
+  background-size: auto auto;
+  background-color: #fee;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 8px,
+    rgba(255, 255, 255, 1) 8px,
+    rgba(255, 255, 255, 1) 16px
+  );
+  background-attachment: fixed;
+  color: #444;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+h1, h2 {
+  margin: 0 auto 16px;
+}
+
+.appMain {
+  width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.header {
+  text-align: center;
+}
+
+.operationArea {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 16px;
+}
+
+.orderButtonArea {
+  margin: 32px auto;
+  text-align: center;
+}
+
+.orderButtonArea__button{
+  margin: 8px;
+  width: 200px;
+  font-size: 1.4rem;
+}
+
+.previewArea {
+  background-color: #fff;
+  padding: 16px;
+}
+
+.orderArea {
+  background-color: #fff;
+  padding: 16px;
+}
+
+.flavorOperation {
+  display: flex;
+  justify-content: center;
+  margin: 32px auto 0;
+}
+
+.flavorOperation__button {
+  margin: 8px;
+  width: 100px;
+  font-size: 1.2rem;
+}
+
+.flavorPicker {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 32px auto;
+}
+
+.flavorPicker__item {
+  width: 80px;
+  height: 80px;
+  box-sizing: border-box;
+}
+
+.flavorPicker__item--selected {
+  border: 4px dashed hotpink;
+}
+
+.icecreamViewer {
+  margin: 32px auto;
+  padding: 8px;
+  background-color: #eee;
+}
