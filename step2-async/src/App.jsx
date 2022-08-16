@@ -4,7 +4,10 @@ import {Order} from './components/Order.jsx';
 import {Preview} from './components/Preview.jsx';
 
 const fetchFlavorsList = async () => {
-  return (await fetch('/2022-solidjs/api-mock/flavors')).json();
+  // Loading表示のため、わざと遅延させています
+  await new Promise(resolve => setTimeout(resolve, 2000))
+
+  return (await fetch('/2022-solidjs/api-mock/flavors.json')).json();
 }
 
 const App = () => {
