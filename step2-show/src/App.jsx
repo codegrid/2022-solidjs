@@ -50,10 +50,7 @@ const App = () => {
         <Preview flavors={flavors()} withCone={withCone()} />
       </div>
       <div class="orderButtonArea">
-        <Show
-          when={flavors().length >= 3}
-          fallback={<p>フレーバーを3つ選んでください</p>}
-        >
+        <Show when={flavors().length >= 3} fallback={<p>フレーバーを3つ選んでください</p>}>
           <button
             class="orderButtonArea__button"
             onClick={() => console.log('My order is', {flavors: flavors(), withCone: withCone()})}

@@ -42,7 +42,7 @@ const App = () => {
     if (event.key !== 'Escape') return;
     setFlavors([]);
     setWithCone(true);
-  }
+  };
   onMount(() => {
     document.addEventListener('keydown', handleKeydown, false);
     onCleanup(() => {

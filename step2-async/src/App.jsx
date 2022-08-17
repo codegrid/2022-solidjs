@@ -1,20 +1,26 @@
-import {createSignal, createResource} from 'solid-js';
+import {createEffect, createSignal, createResource, onMount, onCleanup} from 'solid-js';
 
 import {Order} from './components/Order.jsx';
 import {Preview} from './components/Preview.jsx';
 
 const fetchFlavorsList = async () => {
   // Loading表示のため、わざと遅延させています
-  await new Promise(resolve => setTimeout(resolve, 2000))
+  await new Promise((resolve) => setTimeout(resolve, 2000));
 
   return (await fetch('/2022-solidjs/api-mock/flavors.json')).json();
-}
+};
 
 const App = () => {
   const [flavorsList] = createResource(fetchFlavorsList);
   const [flavors, setFlavors] = createSignal([]);
   const [withCone, setWithCone] = createSignal(true);
   const [currentFlavorIdx, setCurrentFlavorIdx] = createSignal(0);
+
+  createEffect(() => {
+    if (flavors().length === 3) {
+      console.log('フレーバーの選択が完了しました！');
+    }
+  });
 
   const addFlavor = () => {
     if (flavors().length >= 3) return;
@@ -26,6 +32,18 @@ const App = () => {
     nextFlavors.pop();
     setFlavors(nextFlavors);
   };
+
+  const handleKeydown = (event) => {
+    if (event.key !== 'Escape') return;
+    setFlavors([]);
+    setWithCone(true);
+  };
+  onMount(() => {
+    document.addEventListener('keydown', handleKeydown, false);
+    onCleanup(() => {
+      document.removeEventListener('keydown', handleKeydown, false);
+    });
+  });
 
   return (
     <main class="appMain">
